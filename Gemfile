@@ -30,3 +30,5 @@ end
  gem 'turbolinks'
  #bootstrap provides layouts, forms, buttons, icons, Javascript functions...
  gem 'bootstrap-sass'
+
+ gem 'pry-rails'
