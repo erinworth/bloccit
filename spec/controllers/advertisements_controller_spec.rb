@@ -4,8 +4,6 @@ require 'rails_helper'
  RSpec.describe AdvertisementsController, type: :controller do
    let (:my_ad) {Advertisement.create!(id: 1,title: RandomData.random_sentence, body: RandomData.random_paragraph, price: 99)}
 
-
-
    describe "GET #index" do
      it "returns http success" do
        get :index
@@ -50,7 +48,7 @@ require 'rails_helper'
 
      it "assigns the new advertisement to @advertisement" do
        post :create, advertisement: {title: RandomData.random_sentence, body: RandomData.random_paragraph, price: 99}
-       expect(assigns(:post)).to eq Advertisement.last
+       expect(assigns(:advertisement)).to eq Advertisement.last
      end
 
      it "redirects to the new advertisement" do

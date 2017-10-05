@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   get 'about' =>'wecome#about'
 
+  root 'welcome#index'
+
 
 end
