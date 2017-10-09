@@ -69,7 +69,7 @@ describe "GET show" do
 
    it "redirects to the new question" do
      post :create, {question: my_question.attributes}
-     expect(response).to redirect_to Quesiton.last
+     expect(response).to redirect_to Question.last
    end
  end
 

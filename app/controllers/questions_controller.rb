@@ -12,11 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new
-    @question.title = params[:question][:title]
-    @question.body = params[:question][:body]
-    @question.resolved = params[:question][:resolved]
-
+    @question = Question.new(params.require(:question).permit(:title, body: :resolved))
     if @question.save
       flash[:notice] = "Question was saved."
       redirect_to @question
