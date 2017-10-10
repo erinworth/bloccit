@@ -10,7 +10,7 @@ class SponsoredPostsController < ApplicationController
       redirect_to [@topic,@sponsored_post]
 #      redirect_to @sponsored_post
     else
-      flash.new[:alert] = "Alert. Alert. Error saving sponsored_post. Try again."
+      flash.new[:alert] = "Alert. Alert. Error saving sponsored post. Try again."
       render :new
     end
   end

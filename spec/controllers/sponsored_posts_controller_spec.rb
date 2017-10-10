@@ -8,18 +8,18 @@ RSpec.describe SponsoredPostsController, type: :controller do
 
   describe "GET #show" do
     it "returns http success" do
-      get :show, topic_id: my_topic.id, id: my_sponsoredpost.id
+      get :show, topic_id: my_topic.id, id: my_sponsored_post.id
       expect(response).to have_http_status(:success)
     end
 
     it "renders the #show view" do
-      get :show, topic_id: my_topic.id, id: my_sponsoredpost.id
+      get :show, topic_id: my_topic.id, id: my_sponsored_post.id
       expect(response).to render_template :show
     end
 
-    it "assigns my_sponsored_post to @sponsoredpost" do
-      get :show, topic_id: my_topic.id, id: my_sponsoredpost.id
-      expect(assigns(:sponsored_post)).to eq(my_sponsoredpost)
+    it "assigns my_sponsored_post to @sponsored_post" do
+      get :show, topic_id: my_topic.id, id: my_sponsored_post.id
+      expect(assigns(:sponsored_post)).to eq(my_sponsored_post)
     end
   end
 
@@ -42,24 +42,24 @@ RSpec.describe SponsoredPostsController, type: :controller do
 
   describe "GET #edit" do
     it "returns http success" do
-      get :edit, topic_id: my_topic.id, id: my_sponsoredpost.id
+      get :edit, topic_id: my_topic.id, id: my_sponsored_post.id
       expect(response).to have_http_status(:success)
     end
 
     it "renders the #edit view" do
-      get :edit, topic_id: my_topic.id, id: my_sponsoredpost.id
+      get :edit, topic_id: my_topic.id, id: my_sponsored_post.id
       expect(response).to render_template :edit
     end
 
-    it "assigns sponsored post to be updated to @sponsoredpost" do
-      get :edit, topic_id: my_topic.id, id: my_sponsoredpost.id
+    it "assigns sponsored post to be updated to @sponsored_post" do
+      get :edit, topic_id: my_topic.id, id: my_sponsored_post.id
 
       sponsored_post_instance = assigns(:sponsored_post)
 
-      expect(sponsored_post_instance.id).to eq my_sponsoredpost.id
-      expect(sponsored_post_instance.title).to eq my_sponsoredpost.title
-      expect(sponsored_post_instance.body).to eq my_sponsoredpost.body
-      expect(sponsored_post_instance.price).to eq my_sponsoredpost.price
+      expect(sponsored_post_instance.id).to eq my_sponsored_post.id
+      expect(sponsored_post_instance.title).to eq my_sponsored_post.title
+      expect(sponsored_post_instance.body).to eq my_sponsored_post.body
+      expect(sponsored_post_instance.price).to eq my_sponsored_post.price
     end
   end
 
