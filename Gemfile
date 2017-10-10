@@ -31,5 +31,7 @@ end
  gem 'turbolinks'
  #bootstrap provides layouts, forms, buttons, icons, Javascript functions...
  gem 'bootstrap-sass'
+#Used for encrypting User passwords
+ gem 'bcrypt'
 
  gem 'pry-rails'
