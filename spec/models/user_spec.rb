@@ -21,7 +21,14 @@ RSpec.describe User, type: :model do
     it "should have name and email attributes" do
       expect(user).to have_attributes(name: "Bloccit User", email: "user@bloccit.com")
     end
-  end
+    
+    it "should format user name" do
+        user.name = "joe nobody"
+        user.save
+        expect(user.name).to eq "Joe Nobody"
+    end
+end
+
   describe "invalid user" do
     let(:user_with_invalid_name) { User.new(name: "", email: "user@bloccit.com") }
     let(:user_with_invalid_email) { User.new(name: "Bloccit User", email: "") }
