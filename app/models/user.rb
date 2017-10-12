@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
   def format_name
       if name
-          name_array = []
-          name.split.each { |w| name_array << w.capitalize! }
-          self.name = name_array.join(" ")
-      end 
+        name_array = []
+        name.split(" ").each { |w| name_array << w.capitalize }
+        self.name = name_array.join(" ")
+      end
   end
 end
