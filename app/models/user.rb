@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :posts
   before_save { self.email = email.downcase if email.present? }
   before_save :format_name
 
@@ -11,12 +12,4 @@ class User < ActiveRecord::Base
               length: { minimum: 3, maximum: 254 }
 
   has_secure_password
-
-  def format_name
-      if name
-        name_array = []
-        name.split(" ").each { |w| name_array << w.capitalize }
-        self.name = name_array.join(" ")
-      end
-  end
 end
