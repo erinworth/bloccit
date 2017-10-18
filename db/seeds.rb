@@ -27,16 +27,6 @@ users = User.all
  end
  topics = Topic.all
 
-# Create Sponsored posts
-25.times do
-  SponsoredPost.create!(
-    topic: topics.sample,
-    title: RandomData.random_sentence,
-    body:   RandomData.random_paragraph,
-    price: RandomData.random_price
-  )
-end
-
 
  # Create Posts
  50.times do
@@ -57,29 +47,9 @@ end
    )
  end
 
- 50.times do
-      Question.create!(
-          title: RandomData.random_question,
-          body: RandomData.random_paragraph,
-          resolved: false
-      )
- end
-
- Post.find_or_create_by!(
-     title: "unique title",
-     body: "unique body"
-     )
-
-  user = User.first
-  user.update_attributes!(
-    email: 'eeworth@gmail.com',
-    password: 'helloworld'
-  )
 
  puts "Seed finished"
  puts "#{User.count} users created"
  puts "#{Topic.count} topics created"
- puts "#{SponsoredPost.count} sponsored_posts created"
  puts "#{Post.count} posts created"
  puts "#{Comment.count} comments created"
- puts "#{Question.count} questions created"
