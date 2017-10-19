@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :require_sign_in, except: :show
+  before_action :authorize_user, except: [:show, :new, :create]
 
   def show
     @post = Post.find(params[:id])
@@ -8,7 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @topic = Topic.find(params[:topic_id])
-  	@post = Post.new
+  	   @post = Post.new
   end
 
   def create
@@ -17,10 +18,10 @@ class PostsController < ApplicationController
     @post = @topic.posts.build(post_params)
     @post.user = current_user
 
-  	if @post.save
+  	 if @post.save
   		flash[:notice] = "Post was saved."
   		redirect_to [@topic, @post]
-  	else
+  	 else
   		flash.now[:alert] = "There was an error. please try again"
   		render :new
   	end
@@ -60,4 +61,11 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
+  def authorize_user
+    post = Post.find(params[:id])
+    unless current_user == post.user || current_user.admin?
+      flash[:alert] = "You must be and admin to do that."
+      redirect_to [post.topic, post]
+    end
+  end
 end
