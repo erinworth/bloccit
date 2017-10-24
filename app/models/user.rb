@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
               uniqueness: { case_sensitive: false },
               length: { minimum: 3, maximum: 254 }
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 
   has_secure_password
 
