@@ -8,6 +8,11 @@ resources :topics do
   resources :sponsored_posts, except: [:index]
   resources :questions
 end
+
+resources :posts, only: [] do
+resources :comments, only: [:create, :destroy]
+end
+
   post 'users/confirm' => 'users#confirm'
   get 'about' =>'welcome#about'
   get 'faq' => 'welcome#faq'

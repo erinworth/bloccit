@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
   let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
 
   it { is_expected.to have_many(:posts) }
+  it { is_expected.to have_many(:comments) }
 
   # Shoulda tests for name
   it { is_expected.to validate_presence_of(:name) }
@@ -31,7 +32,7 @@ describe "attributes" do
         user.save
         expect(user.name).to eq "Joe Nobody"
     end
-    
+
         it "responds to role" do
             expect(user).to respond_to(:role)
           end
