@@ -35,3 +35,5 @@ end
  gem 'bcrypt'
 
  gem 'pry-rails'
+
+ gem 'figaro', '1.0'
