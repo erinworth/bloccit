@@ -23,10 +23,9 @@ class User < ActiveRecord::Base
   def favorite_for(post)
     favorites.where(post_id: post.id).first
   end
-  
+
   private
   def format_name
     self.name = name.split.map(&:capitalize).join(" ") if name
   end
-
 end
